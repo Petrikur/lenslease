@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import cameraImg from "../assets/images/logo.png";
+import cameraImg from "../assets/images/logo1.png";
 
 export const NavBar = () => {
   const [nav, setNav] = useState(false);
-  const handleClick = () => setNav(!nav);
-  const handleClose = () => {
+
+  const handleClick = () => {
     setNav(!nav);
+  };
+
+  const handleClose = () => {
+    setNav(false);
   };
 
   const navLinks = [
@@ -23,12 +27,7 @@ export const NavBar = () => {
       <div className="px-2 flex justify-around items-center w-full h-full">
         <div className="flex items-center">
           <div className="flex items-center justify-center">
-            <div className="flex justify-center items-center ">
-              <img src={cameraImg} alt="camImg" className="w-56 h-24" />
-              <h1 className="text-3xl font-bold mr-4 sm:text-4xl ml-4">
-                LensLease
-              </h1>
-            </div>
+            <img src={cameraImg} alt="camImg" className="w-[600px] h-[600px]" />
           </div>
           <ul className="hidden lg:flex space-x-7 ml-40">
             {navLinks.map((link, idx) => (
@@ -36,7 +35,6 @@ export const NavBar = () => {
                 <Link
                   className="text-xl text-black hover:text-red-500 font-bold"
                   to={link.to}
-                  onClick={handleClose}
                 >
                   {link.label}
                 </Link>
@@ -62,7 +60,7 @@ export const NavBar = () => {
         className={
           !nav
             ? "hidden"
-            : " gap-2 fixed opacity-96 bg-gray-100 h-screen w-screen flex flex-col pt-10 mt-2 items-center px-8"
+            : "gap-2 fixed opacity-96 bg-gray-100 h-screen w-screen flex flex-col pt-10 mt-2 items-center px-8"
         }
       >
         {navLinks.map((link, idx) => (
