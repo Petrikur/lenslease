@@ -19,7 +19,7 @@ export const About = () => {
             className="w-2/3 lg:w-1/3 mb-8 lg:mb-0 rounded-full"
           />
           <div className="flex flex-col justify-center items-center lg:w-1/3">
-            <h2 className="text-6xl mb-6">Rent Your Equipment</h2>
+            <h2 className="text-6xl mb-6"><span className="text-red-500">Rent</span>  Your Equipment</h2>
             <p className="text-md  font-mono">
               We are a leading camera rental company that offers a wide range of
               high-quality cameras, equipment, and drones for rent. <br></br>
