@@ -6,10 +6,10 @@ import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { Reviews } from "./pages/Reviews";
 import { Equipment } from "./pages/Equipment";
+import { LoadingProvider } from "./components/LoadingContext";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  
   let routes = (
     <React.Fragment>
       <Route path="/" element={<Home />}></Route>
@@ -25,7 +25,9 @@ function App() {
       <div>
         <BrowserRouter>
           <NavBar />
+          <LoadingProvider>
           <Routes>{routes}</Routes>
+          </LoadingProvider>
         </BrowserRouter>
       </div>
     </>

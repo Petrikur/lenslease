@@ -22,7 +22,7 @@ export const Socials = () => {
           className="text-2xl mr-4 text-pink-600 hover:text-pink-800"
         />
       </a>
-      <a target="_blank" href="https://www.instagram.com">
+      <a target="_blank" href="https://www.github.com">
         <FaGithub
           size={30}
           className="text-2xl mr-4 text-gray-600 hover:text-gray-800"

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import cameraImg from "../assets/images/logo1.png";
+import { FaUser } from "react-icons/fa";
 
 export const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -46,9 +47,11 @@ export const NavBar = () => {
           <button className="border-none bg-transparent text-black  mr-4 font-bold text-xl hover:text-red-500">
             Login
           </button>
-          <button className="px-8 py-3 bg-red-500 rounded text-white font-bold text-xl hover:bg-red-600 hover:py-4">
-            Sign up
-          </button>
+          <Link
+            className="heroButton bg-red-500 hover:bg-red-600 "
+          >
+            <FaUser size={20} className="mr-2" /> Sign Up
+          </Link>
         </div>
         <div className="lg:hidden mr-4" onClick={handleClick}>
           {!nav ? <FiMenu size={20} /> : <FiX className="" size={20} />}
@@ -75,8 +78,14 @@ export const NavBar = () => {
           </li>
         ))}
         <div className="flex flex-col my-4 ">
-          <button className="menuButton">Sign In</button>
-          <button className="menuButton">Sign Up</button>
+          <Link className="heroButton text-black mb-2 border border-black hover:bg-red-600 ">
+            <FaUser size={20} className="mr-2" /> Login
+          </Link>
+          <Link
+            className="heroButton bg-red-500 hover:bg-red-600 "
+          >
+            <FaUser size={20} className="mr-2" /> Sign Up
+          </Link>
         </div>
       </ul>
     </div>
