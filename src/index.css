@@ -11,8 +11,16 @@
     @apply font-bold py-3 px-8 rounded flex items-center text-white  gap-2;
   }
 }
+
+@layer utilities {
+  .clipImg {
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  }
+  
+}
+
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 /* 
 :root {

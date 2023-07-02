@@ -19,7 +19,7 @@ export const Hero = () => {
             <Link className="heroButton bg-red-500 hover:bg-red-600 ">
               <FaUser size={20} className="mr-2" /> Sign Up
             </Link>
-            <Link className="heroButton bg-gray-300 hover:bg-gray-400  ">
+            <Link to={"about"} className="heroButton bg-gray-300 hover:bg-gray-400  ">
               <FaInfoCircle size={20} className="mr-2" /> Learn More
             </Link>
           </div>

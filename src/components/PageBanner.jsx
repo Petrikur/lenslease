@@ -1,23 +1,22 @@
 import React from "react";
 import bga from "../assets/images/bga.jpg";
 import "./divider.css";
+import { Socials } from "../components/Socials";
 
 export const PageBanner = ({ name }) => {
   return (
     <>
       <div
-        className="relative w-full h-[700px] bg-cover bg-center "
+        className="relative w-full h-[400px] lg:h-[700px] bg-cover bg-center  "
         style={{
           backgroundImage: `url(${bga})`,
         }}
       >
-        <div
-          className="absolute inset-0 flex bg-white bg-opacity-60"
-          // style={{ backdropFilter: "blur(4px)" }}
-        >
-          <div className="">
-            <h1 className="font-semibold text-3xl md:text-6xl  md:pl-64  md:pt-64 ">{name}</h1>
-          </div>
+        <div className="absolute inset-0  bg-white bg-opacity-70">
+          <h1 className="font-semibold pt-36 text-center text-3xl md:text-left  md:text-6xl md:pl-[400px] md:pt-64">
+            {name}
+          </h1>
+          <Socials />
         </div>
 
         {/* divider */}
@@ -37,6 +36,7 @@ export const PageBanner = ({ name }) => {
       </div>
     </>
   );
+  a;
 };
 
 export default PageBanner;
