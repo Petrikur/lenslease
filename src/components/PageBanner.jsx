@@ -1,22 +1,24 @@
 import React from "react";
 import bga from "../assets/images/bga.jpg";
+
 import "./divider.css";
 import { Socials } from "../components/Socials";
 
-export const PageBanner = ({ name }) => {
+export const PageBanner = ({ name,phrase }) => {
   return (
     <>
       <div
-        className="relative w-full h-[400px] lg:h-[700px] bg-cover bg-center  "
+        className="relative w-full h-[400px] lg:h-[700px] bg-cover bg-center "
         style={{
           backgroundImage: `url(${bga})`,
         }}
       >
-        <div className="absolute inset-0  bg-white bg-opacity-70">
-          <h1 className="font-semibold pt-36 text-center text-3xl md:text-left  md:text-6xl md:pl-[400px] md:pt-64">
-            {name}
-          </h1>
-          <Socials />
+        <div className="absolute inset-0 bg-white text-center md:text-start pt-36 bg-opacity-70 md:pl-[300px] md:pt-64">
+    
+            <h1 className="font-semibold  text-3xl md:text-6xl mb-4 ">
+              {name}
+            </h1>
+            <p className="text-xl">{phrase}</p>
         </div>
 
         {/* divider */}
