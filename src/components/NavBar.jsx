@@ -18,7 +18,7 @@ export const NavBar = () => {
     { to: "/", label: "Home" },
     { to: "about", label: "About" },
     { to: "equipment", label: "Equipment" },
-    { to: "testimonials", label: "Testimonials" },
+    { to: "reviews", label: "Reviews" },
     { to: "contact", label: "Contact" },
   ];
 
