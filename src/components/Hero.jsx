@@ -14,7 +14,7 @@ export const Hero = () => {
 
   return (
     <>
-      <section className="relative pt-48 md:pt-64 sm:px-4 md:px-8 lg:px-16 xl:px-20 h-screen">
+      <section className="relative pt-48 md:pt-64 sm:px-4 md:px-8 lg:px-16 xl:px-20 h-screen overflow-y-hidden overflow-x-hidden">
         <ImageLoader
           src={bg2}
           alt="Background Image"
