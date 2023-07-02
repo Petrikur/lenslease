@@ -2,6 +2,7 @@ import React from "react";
 import { PageBanner } from "../components/PageBanner";
 import storeImg from "../assets/images/store.jpg";
 import Footer from "../components/Footer";
+import { Stats } from "../components/Stats";
 
 export const About = () => {
   return (
@@ -40,6 +41,9 @@ export const About = () => {
           </div>
         </div>
       </section>
+      <div className="mt-24">
+      <Stats />
+      </div>
       <Footer />
     </>
   );
