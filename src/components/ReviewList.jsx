@@ -39,8 +39,8 @@ const testimonials = [
 
 const ReviewList = () => {
   return (
-    <section className=" text-neutral-500 dark:text-neutral-300 px-4">
-      <div className="mx-auto max-w-2xl text-center md:max-w-xl lg:max-w-3xl">
+    <section className="  dark:text-neutral-300 px-4">
+      <div className="mx-auto text-gray-600 max-w-2xl text-center md:max-w-xl lg:max-w-3xl">
         <h3 className="mb-6 text-3xl font-bold">Our Reviews</h3>
         <p className="mb-6 pb-2 md:mb-12 md:pb-0">
           We're proud to share what our customers have to say about their
@@ -52,7 +52,7 @@ const ReviewList = () => {
 
       <div className="grid gap-6 text-center md:grid-cols-3">
         {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className="flex justify-center">
+          <div key={testimonial.id} className="flex justify-center text-gray-600">
             <div className="max-w-md w-full">
               <div className="block rounded-lg bg-white shadow-lg  h-full"> 
                {/* dark:bg-neutral-700 dark:shadow-black/30 */}

@@ -12,7 +12,7 @@ export const DiscountBanner = () => {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        height: "200px",
+        height: "250px",
         overflow: "hidden",
       }}
     >
@@ -36,7 +36,6 @@ export const DiscountBanner = () => {
           zIndex: 1,
           textAlign: "center",
           color: "white",
-          fontSize: "20px",
           fontWeight: "bold",
           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
         }}
@@ -48,9 +47,9 @@ export const DiscountBanner = () => {
           </p>
         <Link
         to={"equipment"}
-          className="heroButton bg-red-500 hover:bg-red-600 py-2 mt-2 px-4" 
+          className="heroButton bg-red-500 hover:bg-red-600 py-3 mt-4 text-md " 
         >
-          <FaChevronRight size={20} className="mr-2" /> Check out
+          <FaChevronRight size={20} className="mr-2" /> Check out!
         </Link>
         </div>
       </div>

@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { Stats } from "../components/Stats";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { DiscountBanner } from "../components/DiscountBanner";
 
 export const About = () => {
   useEffect(() => {
@@ -57,6 +58,8 @@ export const About = () => {
       </section>
       <div className="mt-24">
         <Stats />
+        <div className="pb-10"></div>
+        <DiscountBanner />
       </div>
       <Footer />
     </>
