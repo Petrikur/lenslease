@@ -25,10 +25,10 @@ export const NavBar = () => {
 
   return (
     <div className="w-screen h-[80px] z-10 fixed drop-shadow-lg pt-10">
-      <div className="px-2 flex justify-around items-center w-full h-full">
+      <div className="px-2 flex justify-around items-center w-full h-full whitespace-nowrap ">
         <div className="flex items-center">
           <div className="flex items-center justify-center">
-            <img src={cameraImg} alt="camImg" className="w-[600px] h-[600px]" />
+          <img src={cameraImg} alt="camImg" className=" w-64 h-auto" />
           </div>
           <ul className="hidden lg:flex space-x-7 ml-40">
             {navLinks.map((link, idx) => (
@@ -78,11 +78,11 @@ export const NavBar = () => {
           </li>
         ))}
         <div className="flex flex-col my-4 ">
-          <Link className="heroButton text-black mb-2 border border-black hover:bg-red-600 ">
+          <Link className="heroButton text-black mb-2 border border-black hover:bg-red-600">
             <FaUser size={20} className="mr-2" /> Login
           </Link>
           <Link
-            className="heroButton bg-red-500 hover:bg-red-600 "
+            className="heroButton bg-red-500 hover:bg-red-600"
           >
             <FaUser size={20} className="mr-2" /> Sign Up
           </Link>

@@ -43,13 +43,13 @@ const Footer = () => {
           <div className="flex flex-col space-y-2">
             <Address />
           </div>
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2 pt-4">
             <p className="text-lg font-semibold">Contact Us:</p>
             <p>Email: info@example.com</p>
             <p>Phone: 123-456-7890</p>
           </div>
           <div className="flex flex-col">
-            <p className="font-bold text-lg">Subscribe to our newsletter</p>
+            <p className="font-bold text-lg pt-4">Subscribe to our newsletter</p>
             <p className="py-2">
               The latest news, articles, and resources, sent to your inbox weekly
             </p>
@@ -70,7 +70,7 @@ const Footer = () => {
         {footerLists.map((list, index) => (
           <div key={index}>
             <h6 className="font-bold uppercase pt-2 text-black ">{list.title}</h6>
-            <ul className="space-y-2  text-black ml-2 mt-1">
+            <ul className="space-y-2 text-black ml-2 mt-1">
               {list.items.map((item, itemIndex) => (
                 <li key={itemIndex}>
                   <Link to={`/${item.toLowerCase()}`} className=" hover:underline hover:text-red-500">
