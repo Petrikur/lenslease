@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply text-neutral-800;
+  }
+  html.dark {
+    @apply text-neutral-50;
+    @apply bg-neutral-800;
+  }
+
   .menuButton {
     @apply border bg-transparent px-8 py-3 mb-4 rounded text-xl;
   }
@@ -14,7 +22,7 @@
 
 @layer utilities {
   .clipImg {
-    /* clip-path: polygon(0 100%, 100% 0, 100% 100%); */
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
   }
 }
 
