@@ -7,6 +7,7 @@ import { Contact } from "./pages/Contact";
 import { Reviews } from "./pages/Reviews";
 import { Equipment } from "./pages/Equipment";
 import { LoadingProvider } from "./components/LoadingContext";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
       <div>
         <BrowserRouter>
           <NavBar />
+          <ScrollToTop />
           <LoadingProvider>
           <Routes>{routes}</Routes>
           </LoadingProvider>
