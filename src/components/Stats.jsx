@@ -43,7 +43,7 @@ export const Stats = () => {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="1200"
             key={index}
-            className="flex flex-col p-6 text-center items-center  mb-8 mx-4 flex-grow  "
+            className="flex flex-col p-6 text-center items-center  mb-8 mx-4 flex-grow  rounded-lg bg-white shadow-lg  h-full "
           >
             {statistic.icon}
             <div className="mt-4">

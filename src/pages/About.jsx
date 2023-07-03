@@ -56,7 +56,7 @@ export const About = () => {
           </div>
         </div>
       </section>
-      <div className="mt-24">
+      <div className="mt-36 mb-24">
         <Stats />
         <div className="pb-10"></div>
         <DiscountBanner />
