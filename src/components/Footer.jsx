@@ -35,7 +35,7 @@ const Address = () => {
 
 const Footer = () => {
   return (
-    <div className="w-full mt-24 text-gray-300 py-y px-2 lg:px-0 bg-gray-100">
+    <div className="w-full text-gray-300 py-y px-2 lg:px-0 bg-gray-100">
       <hr></hr>
       <div className="text-black text-md max-w-[1240px] mx-auto border-b-2 border-gray-600 py-8">
         <div className="text-3xl mb-4">Lens lease</div>
