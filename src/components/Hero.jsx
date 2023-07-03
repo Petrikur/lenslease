@@ -36,7 +36,7 @@ export const Hero = () => {
               Capture more, spend less. <br /> Rent our premium gear for
               stunning photos on any budget.
             </p>
-            <div className="space-x-4 flex flex-wrap justify-center md:justify-start">
+            <div className="space-x-4 flex whitespace-nowrap justify-center md:justify-start">
               <Link
                 className="heroButton bg-red-500 hover:bg-red-600 "
                 data-aos="fade-right"
