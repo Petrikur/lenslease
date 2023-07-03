@@ -18,6 +18,10 @@
   .heroButton {
     @apply font-bold py-3 px-8  flex items-center text-white gap-2 rounded-2xl;
   }
+  .formInput{
+    @apply w-full bg-gray-100 h-8 mb-2 px-4 py-6  
+  }
+ 
 }
 
 @layer utilities {
