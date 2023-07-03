@@ -41,10 +41,10 @@ const ReviewList = () => {
   return (
     <section className=" text-neutral-500 dark:text-neutral-300 px-4">
       <div className="mx-auto max-w-2xl text-center md:max-w-xl lg:max-w-3xl">
-        <h3 className="mb-6 text-3xl font-bold">Testimonials</h3>
+        <h3 className="mb-6 text-3xl font-bold">Our Reviews</h3>
         <p className="mb-6 pb-2 md:mb-12 md:pb-0">
           We're proud to share what our customers have to say about their
-          experience with our products and services. Read the testimonials below
+          experience with our products and services. Read the reviews below
           to get an idea of how our offerings have made a positive impact on
           their lives.
         </p>
