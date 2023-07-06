@@ -21,6 +21,16 @@
   .formInput{
     @apply w-full bg-gray-100 h-8 mb-2 px-4 py-6  
   }
+  .filterButton {
+    @apply text-lg rounded border px-4 bg-gray-300 text-center p-2 hover:bg-gray-600;
+  }
+
+  .filterContainer {
+    @apply flex items-center justify-center gap-2 text-red-500 text-xl;
+  }
+  .filterIcon {
+    @apply rounded border  border-red-500 cursor-pointer hover:bg-red-500 hover:text-white;
+  }
  
 }
 

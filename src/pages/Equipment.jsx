@@ -1,12 +1,15 @@
 import React from 'react';
-import backgroundImage from '../assets/images/bga.jpg';
 import PageBanner from '../components/PageBanner';
-
+import {EquipmentGrid} from '../components/EquipmentGrid';
+import Footer from "../components/Footer"
 
 export const Equipment = () => {
   return (
-    <div >
+   <>
           <PageBanner name={"Equipment"} />
-    </div>
+          <EquipmentGrid />
+          <div className='mt-20'></div>
+          <Footer />
+          </>
   );
 };
