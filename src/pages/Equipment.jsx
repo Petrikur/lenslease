@@ -6,7 +6,7 @@ import Footer from "../components/Footer"
 export const Equipment = () => {
   return (
    <>
-          <PageBanner name={"Equipment"} />
+          <PageBanner name={"Equipment"} phrase={"Our equipment for "} phraseSpanText={"rent"} />
           <EquipmentGrid />
           <div className='mt-20'></div>
           <Footer />

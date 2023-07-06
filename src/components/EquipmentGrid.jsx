@@ -4,6 +4,7 @@ import { IoClose } from "react-icons/io5";
 import { ImageLoader } from "./ImageLoader";
 
 import { cameraData } from "../components/data/data";
+import { RentSteps } from "./RentSteps";
 
 const options = [
   { label: "Canon", value: "Canon" },
@@ -103,6 +104,8 @@ export const EquipmentGrid = () => {
 
   return (
     <>
+    <RentSteps />
+    <h1 className="mt-24 text-4xl text-center">Our equipment </h1>
     <ul className="mt-10 max-w-full h-20 text-bold text-xl flex flex-wrap justify-center gap-4">
       <li className="relative">
         <button
