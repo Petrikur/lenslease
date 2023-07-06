@@ -9,6 +9,7 @@ const options = [
   { label: "Canon", value: "Canon" },
   { label: "Nikon", value: "Nikon" },
   { label: "Sony", value: "Sony" },
+  { label: "Dji", value: "Dji" },
 ];
 
 const filterButtons = [
@@ -29,6 +30,12 @@ export const EquipmentGrid = () => {
 
   const hasFilters = selectedCategory !== "All" || selectedBrand !== "";
 
+  // Adjust categories based on brand
+  const availableCategories = selectedBrand
+  ? cameraData.find((brand) => brand.brand === selectedBrand)?.categories
+  : filterButtons.slice(2); 
+
+
 
   // Filter by brand and category 
   const filteredData = cameraData.filter((item) => {
@@ -40,10 +47,10 @@ export const EquipmentGrid = () => {
       }
     } else {
       if (selectedBrand === "All" || selectedBrand === "") {
-        return item.category.includes(selectedCategory);
+        return item.categories.includes(selectedCategory);
       } else {
         return (
-          item.category.includes(selectedCategory) &&
+          item.categories.includes(selectedCategory) &&
           item.brand === selectedBrand
         );
       }
@@ -118,24 +125,33 @@ export const EquipmentGrid = () => {
           </ul>
         )}
       </li>
-      {filterButtons.map((label, index) => (
-        <li key={index}>
-          <button
-            onClick={() => {
-              if (label === "All products") {
-                setSelectedCategory("All");
-              } else {
-                setSelectedCategory(label);
-              }
-              // setSelectedBrand("");
-            }}
-            className="filterButton"
-          >
-            {label}
-          </button>
-        </li>
-      ))}
-    </ul>
+      {filterButtons.map((label, index) => {
+        if (
+            label !== "Brands" &&
+            label !== "All products" &&
+            selectedBrand &&
+            !availableCategories.includes(label)
+          ) {
+            return null; // Hide the fillter button if it's not available for the selected brand
+          }
+          return (
+            <li key={index}>
+              <button
+                onClick={() => {
+                  if (label === "All products") {
+                    setSelectedCategory("All");
+                  } else {
+                    setSelectedCategory(label);
+                  }
+                }}
+                className="filterButton"
+              >
+                {label}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
   
   
     <div>{selectedFilters()}</div>
