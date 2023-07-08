@@ -178,7 +178,17 @@ export const EquipmentGrid = () => {
                     {item.brand} {item.model}
                   </h2>
                   <p className="mb-4 text-2xl">
-                    €{item.pricePerDay * 7}
+                    {item.discount > 0 ? (
+                      <>
+                        <span className="line-through l">
+                          €{item.pricePerDay * 7}
+                        </span>{" "}
+                        €
+                        {((item.pricePerDay * (100 - item.discount)) / 100) * 7}
+                      </>
+                    ) : (
+                      <>€{item.pricePerDay * 7}</>
+                    )}
                     <span className=""> /week</span>
                   </p>
                 </div>
