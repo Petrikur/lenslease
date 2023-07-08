@@ -193,9 +193,9 @@ export const EquipmentGrid = () => {
                     <span className=""> /week</span>
                   </p>
                 </div>
-                <button className="px-14 py-2.5 rounded-md bg-red-500 text-sm font-semibold text-white shadow-sm hover:bg-red-600">
-                  <Link to={`/equipment/${item.id}`}>Get it!</Link>
-                </button>
+                <Link to={`/equipment/${item.id}`} className="px-14 py-2.5 rounded-md bg-red-500 text-sm font-semibold text-white shadow-sm hover:bg-red-600">
+                 Get it!
+                </Link>
               </div>
             </div>
           ))}
