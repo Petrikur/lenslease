@@ -29,17 +29,17 @@ export const RentSteps = () => {
         <Step
           number={1}
           heading={"Select equipment"}
-          text={"Find the right equipment for you"}
+          text={"Find the right equipment and rent duration"}
         />
         <Step
           number={2}
-          heading={"Select date"}
-          text={"Choose the time you want to rent"}
+          heading={"Get your gear!"}
+          text={"Come get your gear or let us handle that for you!"}
         />
         <Step
           number={3}
-          heading={"Get your gear!"}
-          text={"Come get your gear or let us handle that for you!"}
+          heading={"Shoot!"}
+          text={"Capture the most important moments!"}
         />
         <Step
           number={4}

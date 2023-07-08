@@ -12,6 +12,7 @@ export const cameraData = [
       categories: ["Cameras", "All"],
       image: canon1,
       pricePerDay: 10,
+      discount: 20
     },
     {
       id: 2,
@@ -20,6 +21,7 @@ export const cameraData = [
       categories: ["Cameras","All"],
       image: sony1,
       pricePerDay: 10,
+      discount: 0
     },
   
     {
@@ -29,6 +31,7 @@ export const cameraData = [
       categories: ["Cameras","All"],
       image: nikon1,
       pricePerDay: 15,
+      discount: 0
     },
   
     {
@@ -38,5 +41,6 @@ export const cameraData = [
       categories: ["Drones", "All"],
       image: dji400,
       pricePerDay: 20,
+      discount: 0
     },
   ];
