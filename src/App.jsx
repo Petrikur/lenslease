@@ -8,6 +8,7 @@ import { Reviews } from "./pages/Reviews";
 import { Equipment } from "./pages/Equipment";
 import { LoadingProvider } from "./components/LoadingContext";
 import ScrollToTop from "./components/ScrollToTop";
+import { ItemPage } from "./pages/ItemPage";
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
       <Route path="/equipment" element={<Equipment />}></Route>
       <Route path="/reviews" element={<Reviews />}></Route>
       <Route path="/contact" element={<Contact />}></Route>
+      <Route path="/equipment/:id" element={<ItemPage />}></Route>
     </React.Fragment>
   );
 

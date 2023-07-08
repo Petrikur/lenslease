@@ -5,6 +5,7 @@ import { ImageLoader } from "./ImageLoader";
 
 import { cameraData } from "../components/data/data";
 import { RentSteps } from "./RentSteps";
+import { Link } from "react-router-dom";
 
 const options = [
   { label: "Canon", value: "Canon" },
@@ -193,7 +194,7 @@ export const EquipmentGrid = () => {
                   </p>
                 </div>
                 <button className="px-14 py-2.5 rounded-md bg-red-500 text-sm font-semibold text-white shadow-sm hover:bg-red-600">
-                  Get it!
+                  <Link to={`/equipment/${item.id}`}>Get it!</Link>
                 </button>
               </div>
             </div>
