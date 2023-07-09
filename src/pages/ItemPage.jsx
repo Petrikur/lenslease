@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { cameraData } from "../components/data/data";
 import PageBanner from "../components/PageBanner";
 import Footer from "../components/Footer";
+import { CartContext } from "../components/context/CartContext";
+import { useContext } from "react";
 
 export const ItemPage = () => {
   const { id } = useParams();
   const product = cameraData.find((item) => item.id === Number(id));
+
+  const cart = useContext(CartContext);
+
+  useEffect(() => {
+    console.log(cart.cartItems)
+  })
+
+  const handleAddToCart = () => {
+    cart.addToCart(product);
+  };
 
   if (!product) {
     return <p>Product not found</p>;
@@ -58,7 +70,7 @@ export const ItemPage = () => {
                 `€${pricePerDay * 7}`
               )}
             </p>
-            <button className="mt-4 px-4 py-2 bg-red-500 text-white font-semibold rounded shadow-md hover:bg-red-600">
+            <button onClick={handleAddToCart} className="mt-4 px-4 py-2 bg-red-500 text-white font-semibold rounded shadow-md hover:bg-red-600">
               Add to Cart
             </button>
           </div>

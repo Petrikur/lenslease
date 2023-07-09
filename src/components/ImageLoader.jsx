@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLoading } from "./LoadingContext";
+import { useLoading } from "./context/LoadingContext";
 import { Loader } from "./Loader";
 
 export const ImageLoader = ({ src, alt, ...props }) => {
