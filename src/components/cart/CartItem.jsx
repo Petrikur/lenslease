@@ -1,7 +1,7 @@
 import React from "react";
 import { FiX } from "react-icons/fi";
 
-const CartItem = ({ item, itemCount, onRemoveFromCart, onAddToCart }) => {
+const CartItem = ({ item, itemCount, onRemoveFromCart, onAddToCart, isCheckOut }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between mb-4 mt-10 py-12  shadow-xl border rounded pr-4 relative">
      {/* Discount Badge */}
@@ -36,8 +36,8 @@ const CartItem = ({ item, itemCount, onRemoveFromCart, onAddToCart }) => {
         <div className="border-2 border-red-500 rounded-full text-center p-2">
           <span className="text-red-500">X {itemCount}</span>
         </div>
-        
-        <button
+       
+      {  !isCheckOut && <> <button
           className="cartCountButton"
           onClick={() => onRemoveFromCart(item.id)}
         >
@@ -48,7 +48,7 @@ const CartItem = ({ item, itemCount, onRemoveFromCart, onAddToCart }) => {
           onClick={() => onAddToCart(item)}
         >
           <span className="text-2xl">+</span>
-        </button>
+        </button> </>}
       </div>
     </div>
   );

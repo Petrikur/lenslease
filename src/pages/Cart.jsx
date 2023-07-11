@@ -1,24 +1,23 @@
-import React from "react";
 import PageBanner from "../components/PageBanner";
 import Footer from "../components/Footer";
-import { useContext } from "react";
+import React,{ useContext,useState,useEffect } from "react";
 import { CartContext } from "../components/context/CartContext";
-import { useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { cameraData } from "../components/data/data";
 import CartItem from "../components/cart/CartItem";
 import { CartInput } from "../components/cart/CartInput";
-import { Link } from "react-router-dom";
+import { Link,useNavigate  } from "react-router-dom";
 import { CheckoutProvider } from "../components/context/CheckoutContext";
-
+import { CheckoutContext } from "../components/context/CheckoutContext";
 export const Cart = () => {
-  const cart = useContext(CartContext);
 
+  const cart = useContext(CartContext);
+  const { updateCheckoutData } = useContext(CheckoutContext);
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -37,23 +36,36 @@ export const Cart = () => {
     },
   ]);
 
-  useEffect(() => {
-    AOS.init();
-  }, []);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    updateCheckoutData({
+      items: cart.cartItems,
+      selectedDate,
+      name,
+      phoneNumber,
+      email,
+      address,
+      country,
+      zipCode,
+      shippingOption,
+      pickupLocation,
+    });
+
+   
+    navigate('/checkout');
   };
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const handleShowDatePicker = () => {
     setShowDatePicker((prevVal) => {
       return !prevVal;
     });
   };
-
-  useEffect(() => {
-    console.log(pickupLocation);
-  }, [pickupLocation]);
 
   const handleConfirmDate = () => {
     setShowDatePicker(false);
@@ -109,15 +121,15 @@ export const Cart = () => {
       }
     });
 
+    cart.setCartAmount(totalPrice)
     return totalPrice;
   };
 
   return (
-    <>
-      {" "}
       <CheckoutProvider>
+    <>
         <PageBanner name={"Cart"} />
-        <div className="flex flex-col md:flex-row justify-center items-start mt-36 mb-20 mx-auto md:px-0 overflow-x-hidden container">
+        <div className="flex flex-col md:flex-row justify-center items-start mt-36 mb-20 mx-auto md:px-0 overflow-x-hidden container ">
           <div
             className="w-full md:w-1/2 text-center lg:mx-16"
             data-aos="fade-right"
@@ -125,7 +137,7 @@ export const Cart = () => {
             <h2 className="text-2xl mb-4 text-center">Cart Items</h2>
 
             {/* Cart Items  */}
-            {cart.cartItems.map((item, index) => {
+            {cart.cartItems?.map((item, index) => {
               const isFirstOccurrence =
                 cart.cartItems.findIndex((i) => i.id === item.id) === index;
               const itemCount = cart.cartItems.filter(
@@ -320,7 +332,7 @@ export const Cart = () => {
           </div>
         </div>
         <Footer />
-      </CheckoutProvider>
     </>
+      </CheckoutProvider>
   );
 };

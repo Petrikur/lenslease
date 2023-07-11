@@ -11,17 +11,34 @@ import ScrollToTop from "./components/ScrollToTop";
 import { ItemPage } from "./pages/ItemPage";
 import { CartProvider } from "./components/context/CartContext";
 import { Cart } from "./pages/Cart";
+import { Checkout } from "./pages/Checkout";
+import { CheckoutProvider } from "./components/context/CheckoutContext";
 
 function App() {
   let routes = (
     <React.Fragment>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/about" element={<About />}></Route>
-      <Route path="/equipment" element={<Equipment />}></Route>
-      <Route path="/reviews" element={<Reviews />}></Route>
-      <Route path="/contact" element={<Contact />}></Route>
-      <Route path="/equipment/:id" element={<ItemPage />}></Route>
-      <Route path="/cart" element={<Cart />}></Route>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/equipment" element={<Equipment />} />
+      <Route path="/reviews" element={<Reviews />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/equipment/:id" element={<ItemPage />} />
+      <Route
+        path="/cart"
+        element={
+          <CheckoutProvider>
+            <Cart />
+          </CheckoutProvider>
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <CheckoutProvider>
+            <Checkout />
+          </CheckoutProvider>
+        }
+      />
     </React.Fragment>
   );
 
@@ -29,13 +46,14 @@ function App() {
     <>
       <div>
         <BrowserRouter>
-          <CartProvider>
-            <NavBar />
-            <ScrollToTop />
-            <LoadingProvider>
+          <LoadingProvider>
+            <CartProvider>
+              <NavBar />
+              <ScrollToTop />
+
               <Routes>{routes}</Routes>
-            </LoadingProvider>
-          </CartProvider>
+            </CartProvider>
+          </LoadingProvider>
         </BrowserRouter>
       </div>
     </>

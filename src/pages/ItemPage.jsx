@@ -12,10 +12,6 @@ export const ItemPage = () => {
 
   const cart = useContext(CartContext);
 
-  useEffect(() => {
-    console.log(cart.cartItems)
-  })
-
   const handleAddToCart = () => {
     cart.addToCart(product);
   };

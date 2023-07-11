@@ -19,7 +19,6 @@ export const NavBar = () => {
   };
 
   useEffect(() => {
-    console.log(cart.cartItems);
   }, [cart.cartItems]);
 
   const navLinks = [

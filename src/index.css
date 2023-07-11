@@ -34,6 +34,12 @@
   .cartCountButton {
     @apply text-white border rounded-full bg-red-500 font-bold p-0.5 px-3 flex items-center justify-center hover:bg-red-700;
   }
+  .checkoutHeading {
+    @apply text-lg font-medium my-2;
+  }
+  .checkoutText {
+    @apply text-gray-700 bg-gray-100 p-2;
+  }
  
  
 }
