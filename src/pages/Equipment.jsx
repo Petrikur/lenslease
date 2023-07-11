@@ -8,7 +8,7 @@ export const Equipment = () => {
    <>
           <PageBanner name={"Equipment"} phrase={"Our equipment for "} phraseSpanText={"rent"} />
           <EquipmentGrid />
-          <div className='mt-20'></div>
+          <div className='pt-28'></div>
           <Footer />
           </>
   );

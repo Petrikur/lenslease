@@ -6,14 +6,14 @@ import { CartContext } from "./context/CartContext";
 import { useLoading } from "./context/LoadingContext";
 import { Loader } from "./Loader";
 
-export const PaymentForm = ({ onSubmit }) => {
+export const PaymentForm = ({ onSubmit,totalAmount }) => {
   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("visa");
 
-  const cart = useContext(CartContext);
+   const cart = useContext(CartContext);
   const { loading, setLoading } = useLoading();
 
   const handleSubmit = (event) => {
@@ -26,7 +26,8 @@ export const PaymentForm = ({ onSubmit }) => {
       setCvv("");
       onSubmit();
       setLoading(false);
-    }, 4000);
+      cart.clearCart()
+    }, 2000);
   };
 
   const handlePaymentMethodChange = (method) => {
@@ -158,7 +159,7 @@ export const PaymentForm = ({ onSubmit }) => {
         {!loading &&  <>
           <div className="text-base mb-8">
             Amount:{" "}
-            <span className="text-red-500  text-xl">€ {cart.cartAmount}</span>
+            <span className="text-red-500  text-xl">€ {totalAmount}</span>
           </div>
           <button
             type="submit"

@@ -22,7 +22,7 @@
     @apply w-full bg-gray-100 h-8 mb-2 px-4 py-6
   }
   .filterButton {
-    @apply text-lg rounded border px-4 bg-gray-300 text-center p-2 hover:bg-gray-600;
+    @apply text-lg rounded border bg-red-500 text-white px-6 font-bold text-center p-2 hover:bg-red-700;
   }
 
   .filterContainer {
@@ -48,10 +48,7 @@
   .clipImg {
     clip-path: polygon(0 100%, 100% 0, 100% 100%);
   }
-  .step {
-    /* clip-path: polygon(100% 0%, 75.2% 0%, 100% 38.8%); */
-    
-  }
+ 
 }
 
 

@@ -57,7 +57,7 @@ export const cameraData = [
   },
   {
     id: 4,
-    brand: "DJI",
+    brand: "Dji",
     model: "400",
     categories: ["Drones", "All"],
     image: dji400,

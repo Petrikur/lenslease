@@ -27,6 +27,7 @@ export const Cart = () => {
   const [shippingOption, setShippingOption] = useState("pickup");
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [pickupLocation, setPickupLocation] = useState("");
+  const [cartTotalPrice,setCartTotalPrice] = useState(0);
 
   const [selectedDate, setSelectedDate] = useState([
     {
@@ -38,10 +39,17 @@ export const Cart = () => {
 
 
 
+  useEffect(() => {
+   setCartTotalPrice(calculatePrice(formattedStartDate,formattedEndDate))
+
+  },[cart.cartItems,selectedDate])
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     updateCheckoutData({
       items: cart.cartItems,
+      totalAmount:cartTotalPrice,
       selectedDate,
       name,
       phoneNumber,
@@ -121,7 +129,7 @@ export const Cart = () => {
       }
     });
 
-    cart.setCartAmount(totalPrice)
+    setCartTotalPrice(totalPrice)
     return totalPrice;
   };
 
@@ -173,7 +181,7 @@ export const Cart = () => {
               <div className="mt-24 text-xl">
                 {priceString}
                 <p className=" text-3xl mt-2 text-green-500 font-bold">
-                  {calculatePrice(formattedStartDate, formattedEndDate)} €
+                  {cartTotalPrice} €
                 </p>
               </div>
             )}
@@ -185,6 +193,7 @@ export const Cart = () => {
                 Date <span className="text-red-500 mb-4">*</span>
               </label>
               <button
+              type="button"
                 onClick={handleShowDatePicker}
                 className="mt-1 bg-gray-100 w-full py-2 text-start pl-1 text-gray-500"
               >
@@ -282,10 +291,9 @@ export const Cart = () => {
                     id="pickup-location"
                     className="w-full bg-gray-100 border-none h-12 "
                     onChange={(e) => setPickupLocation(e.target.value)}
+                    defaultValue={"Joensuu"}
                   >
-                    <option value="" disabled selected>
-                      Select your option
-                    </option>
+                  
                     <option value="Joensuu">Joensuu, Finland</option>
                     <option value="Montreal">Montreal, Canada</option>
                     <option value="New York">New York, USA</option>

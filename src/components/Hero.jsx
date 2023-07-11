@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ImageLoader } from "./ImageLoader";
-
+import { FaChevronRight } from "react-icons/fa";
 export const Hero = () => {
   useEffect(() => {
     AOS.init();
@@ -39,19 +39,13 @@ export const Hero = () => {
             <div className="space-x-4 flex whitespace-nowrap justify-center md:justify-start">
               <Link
                 className="heroButton bg-red-500 hover:bg-red-600 "
-                data-aos="fade-right"
-                data-aos-duration="1000"
-              >
-                <FaUser size={20} className="mr-2" /> Sign Up
-              </Link>
-              <Link
                 to={"about"}
-                className="heroButton bg-gray-300 hover:bg-gray-400"
-                data-aos="fade-left"
+                data-aos="fade-up"
                 data-aos-duration="1000"
               >
-                <FaInfoCircle size={20} className="mr-2" /> Learn More
+                <FaChevronRight size={20} className="mr-2" /> Learn More
               </Link>
+              
             </div>
           </div>
           <div className="md:w-1/2 md:order-1"></div>

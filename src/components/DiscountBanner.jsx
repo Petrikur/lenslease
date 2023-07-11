@@ -46,7 +46,7 @@ export const DiscountBanner = () => {
             <span className="text-red-500">-20%</span> Off
           </p>
         <Link
-        to={"equipment"}
+        to={{pathname: "/equipment"}}
           className="heroButton bg-red-500 hover:bg-red-600 py-3 mt-4 text-md " 
         >
           <FaChevronRight size={20} className="mr-2" /> Check out!

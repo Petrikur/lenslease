@@ -17,7 +17,7 @@ export const PageBanner = ({ name, phrase, phraseSpanText }) => {
         <ImageLoader
           src={bga}
           alt="Background Image"
-          className="w-full h-[400px] lg:h-[700px] bg-cover bg-center "
+          className="w-full h-[300px] lg:h-[600px] bg-cover bg-center "
         />
         <>
           <div

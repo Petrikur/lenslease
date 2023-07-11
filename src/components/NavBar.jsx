@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import cameraImg from "../assets/images/logo1.png";
 import { FaCartArrowDown, FaUser } from "react-icons/fa";
+import 'animate.css';
 
 import { CartContext } from "./context/CartContext";
 import { useContext } from "react";
 export const NavBar = () => {
   const [nav, setNav] = useState(false);
+  const [productAdded, setProductAdded] = useState(false);
   const cart = useContext(CartContext)
+
 
   const handleClick = () => {
     setNav(!nav);
@@ -19,7 +22,18 @@ export const NavBar = () => {
   };
 
   useEffect(() => {
-  }, [cart.cartItems]);
+    if (cart.productAdded) {
+      document
+        .getElementById('cart')
+        .classList.add('animate__animated', 'animate__heartBeat');
+      setTimeout(() => {
+        document
+          .getElementById('cart')
+          .classList.remove('animate__animated', 'animate__heartBeat');
+        cart.setProductAdded(false);
+      }, 1000);
+    }
+  }, [cart.productAdded]);
 
   const navLinks = [
     { to: "/", label: "Home" },
@@ -75,7 +89,7 @@ export const NavBar = () => {
           <Link className="heroButton text-black">
             <FaUser size={20} className="mr-2" /> Sign Up
           </Link>
-          <Link to={"cart"} className="ml-2 heroButton bg-red-500 hover:bg-red-600">
+          <Link id="cart"  to={"cart"} className="ml-2 heroButton bg-red-500 hover:bg-red-600  ">
            <div>{cart.cartItems.length}</div> <FaCartArrowDown size={20} className="mr-2" /> Cart 
           </Link>
         </div>
@@ -110,7 +124,7 @@ export const NavBar = () => {
           <Link className="heroButton bg-red-500 hover:bg-red-600">
             <FaUser size={20} className="mr-2" /> Sign Up
           </Link>
-          <Link to={"cart"} className="heroButton bg-red-500 hover:bg-red-600 mt-4 lg:mt-0">
+          <Link  onClick={handleClose} to={"cart"} className="heroButton bg-red-500 hover:bg-red-600 mt-4 lg:mt-0">
            <div>{cart.cartItems.length}</div> <FaCartArrowDown size={20} className="mr-2" /> Cart
           </Link>
         </div>

@@ -2,17 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { CheckoutContext } from "../components/context/CheckoutContext";
 import PageBanner from "../components/PageBanner";
 import Footer from "../components/Footer";
-
 import { PaymentForm } from "../components/PaymentForm";
 import CartItem from "../components/cart/CartItem";
+
 
 export const Checkout = () => {
   const { checkoutData } = useContext(CheckoutContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // useEffect(() => {
-  //   console.log(checkoutData);
-  // });
 
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US", {
@@ -36,7 +32,7 @@ export const Checkout = () => {
         {!isSubmitted && (
           <>
             <div>
-              <div className="text-center text-xl">Items</div>
+              <div className="text-center text-xl">Your Items</div>
 
               {/* Cart Items */}
               {checkoutData.items.map((item, index) => {
@@ -94,7 +90,7 @@ export const Checkout = () => {
               </div>
             </div>
             <div>
-              <PaymentForm onSubmit={handleSubmission} />
+              <PaymentForm onSubmit={handleSubmission} totalAmount={checkoutData.totalAmount} />
             </div>
           </>
         )}

@@ -20,6 +20,7 @@ export const EquipmentGrid = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedBrand, setSelectedBrand] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  
   const handleBrandSelect = (brand) => {
     setSelectedBrand(brand);
     setDropdownOpen(false);
@@ -57,7 +58,7 @@ export const EquipmentGrid = () => {
     if (hasFilters) {
       return (
         <>
-          <div className="flex items-center justify-center gap-2 text-center mt-24 lg:mt-0 lg:mx-0 mx-2">
+          <div className="flex items-center justify-center gap-2 text-center pt-24 lg:mt-0 lg:mx-0 mx-2">
             {hasFilters && filteredData.length < 1 ? (
               <p className="text-red-500 text-xl ">No results with filters:</p>
             ) : (
@@ -97,9 +98,9 @@ export const EquipmentGrid = () => {
   return (
     <>
       <RentSteps />
-      <h1 className="mt-24 text-4xl text-center">Our equipment </h1>
+      <h1 className="pt-20 text-4xl text-center">Our equipment </h1>
       {/* Filter buttons  */}
-      <ul className="mt-10 max-w-full h-20 text-bold text-xl flex flex-wrap justify-center gap-4">
+      <ul className="mt-10 max-w-full h-22 text-bold text-xl flex flex-wrap justify-center gap-4">
         <li className="relative">
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}

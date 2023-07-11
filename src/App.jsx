@@ -13,6 +13,7 @@ import { CartProvider } from "./components/context/CartContext";
 import { Cart } from "./pages/Cart";
 import { Checkout } from "./pages/Checkout";
 import { CheckoutProvider } from "./components/context/CheckoutContext";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   let routes = (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/reviews" element={<Reviews />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/equipment/:id" element={<ItemPage />} />
+      <Route path="/*" element={<NotFound />} />
       <Route
         path="/cart"
         element={
@@ -50,7 +52,6 @@ function App() {
             <CartProvider>
               <NavBar />
               <ScrollToTop />
-
               <Routes>{routes}</Routes>
             </CartProvider>
           </LoadingProvider>
