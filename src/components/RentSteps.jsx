@@ -38,7 +38,7 @@ export const RentSteps = () => {
         Renting with us is easy!
       </h1>
       <div
-        className="lg:flex-row flex flex-wrap items-center flex-col justify-center gap-4 mx-4 lg:mx-24"
+        className="lg:flex-row flex flex-wrap items-center flex-col justify-center gap-4 mx-4 lg:mx-24 overflow-hidden overflow-y-hidden"
    
       >
         <Step
@@ -62,7 +62,7 @@ export const RentSteps = () => {
         <Step
           number={4}
           heading={'Return gear'}
-          text={'Bring back equipment or ship to one of our locations'}
+          text={'Bring gear back or ship to one of our locations'}
           delay={1200} 
         />
       </div>

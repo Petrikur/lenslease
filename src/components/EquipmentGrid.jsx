@@ -20,7 +20,7 @@ export const EquipmentGrid = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedBrand, setSelectedBrand] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  
+
   const handleBrandSelect = (brand) => {
     setSelectedBrand(brand);
     setDropdownOpen(false);
@@ -98,7 +98,30 @@ export const EquipmentGrid = () => {
   return (
     <>
       <RentSteps />
-      <h1 className="pt-20 text-4xl text-center">Our equipment </h1>
+      <div className=" mx-4 lg:mx-72 text-md pb-8 space-y-4">
+        <h1 className="pt-28 pb-4 text-4xl text-center space-y-4">
+          Our Equipment
+        </h1>
+        <p>
+          Explore our extensive collection of high-quality equipment for rent.
+          Whether you're a professional photographer, a videographer, or simply
+          an enthusiast, we have the perfect gear to suit your needs.
+        </p>
+        <p>
+          Our diverse selection includes top brands like Canon, Nikon, Sony, and
+          Dji, ensuring that you have access to the latest and most reliable
+          equipment on the market.
+        </p>
+        <p>
+          Our equipment is regularly serviced and maintained to guarantee
+          optimal performance and reliability. We understand the importance of
+          having reliable gear that delivers exceptional results, which is why
+          we go the extra mile to ensure that our equipment is in top condition
+          before it reaches your hands.
+        </p>
+        
+      </div>
+
       {/* Filter buttons  */}
       <ul className="mt-10 max-w-full h-22 text-bold text-xl flex flex-wrap justify-center gap-4">
         <li className="relative">
@@ -150,7 +173,7 @@ export const EquipmentGrid = () => {
         })}
       </ul>
       <div>{selectedFilters()}</div>
-      <div className="mt-20 mx-auto max-w-7xl">
+      <div className="mt-20 mx-auto max-w-7xl h-[400px] mb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {filteredData.map((item, index) => (
             <div
@@ -194,8 +217,11 @@ export const EquipmentGrid = () => {
                     <span className=""> /week</span>
                   </p>
                 </div>
-                <Link to={`/equipment/${item.id}`} className="px-14 py-2.5 rounded-md bg-red-500 text-sm font-semibold text-white shadow-sm hover:bg-red-600">
-                 Get it!
+                <Link
+                  to={`/equipment/${item.id}`}
+                  className="px-14 py-2.5 rounded-md bg-red-500 text-sm font-semibold text-white shadow-sm hover:bg-red-600"
+                >
+                  Get it!
                 </Link>
               </div>
             </div>
