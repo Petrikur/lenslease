@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { NavBar } from "./components/NavBar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
@@ -24,7 +25,7 @@ function App() {
       <Route path="/reviews" element={<Reviews />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/equipment/:id" element={<ItemPage />} />
-      <Route path="/*" element={<NotFound />} />
+      <Route path="*" element={<NotFound />} />
       <Route
         path="/cart"
         element={
@@ -47,7 +48,7 @@ function App() {
   return (
     <>
       <div>
-        <BrowserRouter>
+        <HashRouter>
           <LoadingProvider>
             <CartProvider>
               <NavBar />
@@ -55,7 +56,7 @@ function App() {
               <Routes>{routes}</Routes>
             </CartProvider>
           </LoadingProvider>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </>
   );
