@@ -32,7 +32,7 @@ export const Hero = () => {
               <span className="text-red-500">Rent</span> Your Photographic
               Journey
             </h1>
-            <p className="text-xl text-black mb-8 mt-8 " data-aos="fade-left">
+            <p className="text-xl text-black mb-8 mt-8 bg-gray-100 bg-opacity-40 rounded-lg p-1 " data-aos="fade-left">
               Capture more, spend less. <br /> Rent our premium gear for
               stunning photos on any budget.
             </p>

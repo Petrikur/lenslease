@@ -50,7 +50,7 @@ const ReviewList = () => {
         </p>
       </div>
 
-      <div className="grid gap-6 text-center md:grid-cols-3">
+      <div className="grid gap-6 text-center md:grid-cols-3 md:mx-20 ">
         {testimonials.map((testimonial) => (
           <div key={testimonial.id} className="flex justify-center text-gray-600">
             <div className="max-w-md w-full">

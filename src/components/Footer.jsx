@@ -82,7 +82,9 @@ const Footer = () => {
           </div>
         ))}
       </div>
+      <hr className="border"></hr>
       <div className="flex flex-col  max-w-[1240px] px-2 py-4 m-auto justify-between sm:flex-row text-center text-gray-500">
+      
         <div className="py-4">2023 Lens Lease LLC. All rights reserved</div>
         <div><Socials /></div>
       </div>
