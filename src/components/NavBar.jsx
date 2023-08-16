@@ -82,12 +82,10 @@ export const NavBar = () => {
             ))}
           </ul>
         </div>
-        <div className="hidden lg:flex pr-4">
-          <button className="border-none bg-transparent text-black  mr-4 font-bold text-xl hover:text-red-500">
-            Login
-          </button>
-          <Link className="heroButton text-black">
-            <FaUser size={20} className="mr-2" /> Sign Up
+        <div className="hidden lg:flex pr-4 ">
+        
+          <Link className="heroButton text-black border rounded border-black " >
+            <FaUser size={20} className="mr-2" /> Sign Up / Login
           </Link>
           <Link id="cart"  to={"cart"} className="ml-2 heroButton bg-red-500 hover:bg-red-600  ">
            <div>{cart.cartItems.length}</div> <FaCartArrowDown size={20} className="mr-2" /> Cart 
@@ -119,11 +117,9 @@ export const NavBar = () => {
         ))}
         <div className="flex flex-col my-4 ">
           <Link className="heroButton text-black mb-2 border border-black hover:bg-red-600">
-            <FaUser size={20} className="mr-2" /> Login
+            <FaUser size={20} className="mr-2" /> Login / Signup
           </Link>
-          <Link className="heroButton bg-red-500 hover:bg-red-600">
-            <FaUser size={20} className="mr-2" /> Sign Up
-          </Link>
+        
           <Link  onClick={handleClose} to={"cart"} className="heroButton bg-red-500 hover:bg-red-600 mt-4 lg:mt-0">
            <div>{cart.cartItems.length}</div> <FaCartArrowDown size={20} className="mr-2" /> Cart
           </Link>
