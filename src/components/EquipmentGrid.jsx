@@ -12,6 +12,7 @@ const options = [
   { label: "Nikon", value: "Nikon" },
   { label: "Sony", value: "Sony" },
   { label: "Dji", value: "Dji" },
+  { label: "Panasonic", value: "Panasonic" },
 ];
 
 const filterButtons = ["All products", "Cameras", "Drones", "Equipment"];

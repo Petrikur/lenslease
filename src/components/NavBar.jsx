@@ -83,7 +83,6 @@ export const NavBar = () => {
           </ul>
         </div>
         <div className="hidden lg:flex pr-4 ">
-        
           <Link className="heroButton text-black border rounded border-black " >
             <FaUser size={20} className="mr-2" /> Sign Up / Login
           </Link>
