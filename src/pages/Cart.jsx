@@ -178,7 +178,7 @@ export const Cart = () => {
             )}
             {/* calculate price for items  */}
             {cart.cartItems.length > 0 && (
-              <div className="mt-24 text-xl">
+              <div className="mt-20 text-xl">
                 {priceString}
                 <p className=" text-3xl mt-2 text-green-500 font-bold">
                   {cartTotalPrice} €

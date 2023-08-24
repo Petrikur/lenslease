@@ -120,7 +120,6 @@ export const EquipmentGrid = () => {
           we go the extra mile to ensure that our equipment is in top condition
           before it reaches your hands.
         </p>
-        
       </div>
 
       {/* Filter buttons  */}
@@ -133,12 +132,12 @@ export const EquipmentGrid = () => {
             Brands
           </button>
           {dropdownOpen && (
-            <ul className="absolute left-0 w-full bg-white py-2 cursor-pointer z-50">
+            <ul className="absolute left-0 w-full bg-white py-2 cursor-pointer z-50 ">
               {options.map((option) => (
                 <li
                   key={option.value}
                   onClick={() => handleBrandSelect(option.value)}
-                  className="filterButton"
+                  className="filterButton w-32"
                 >
                   {option.label}
                 </li>
@@ -174,58 +173,65 @@ export const EquipmentGrid = () => {
         })}
       </ul>
       <div>{selectedFilters()}</div>
-      <div className="mt-20 mx-auto max-w-7xl mb-20">
+      <div className="mt-20 mx-auto max-w-7xl mb-20 ">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {filteredData.map((item, index) => (
-            <div
+            <Link
               key={item.id}
               className="mx-2 lg:mx-0 flex flex-col py-4 shadow-md hover:shadow-2xl hover:scale-105 hover:border-red-500 hover:border rounded relative"
+              to={`/equipment/${item.id}`}
             >
-              {/* Discount Badge */}
-              {item.discount > 0 && (
-                <div className="absolute top-0 left-0 w-12 h-12 text-center rounded-tl-md  -rotate-12">
-                  <div className=" w-full h-full bg-gradient-to-tr from-red-500 to-yellow-400  text-md font-semibold px-2 py-2 flex items-center justify-center">
-                    -{item.discount}% off
+              {/* <div
+                key={item.id}
+                className="mx-2 lg:mx-0 flex flex-col py-4 shadow-md hover:shadow-2xl hover:scale-105 hover:border-red-500 hover:border rounded relative"
+              > */}
+                {/* Discount Badge */}
+                {item.discount > 0 && (
+                  <div className="absolute top-0 left-0 w-12 h-12 text-center rounded-tl-md  -rotate-12">
+                    <div className=" w-full h-full bg-gradient-to-tr from-red-500 to-yellow-400  text-md font-semibold px-2 py-2 flex items-center justify-center">
+                      -{item.discount}% off
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              <ImageLoader
-                className="p-4 h-2/3"
-                src={item.image}
-                alt="Camera"
-              />
-              <div className="flex flex-col justify-between items-start pl-4">
-                <div>
-                  <h2 className="text-md mb-2 text-neutral-800">
-                    {item.brand}
-                  </h2>
-                  <h2 className="font-bold text-xl mb-2">
-                    {item.brand} {item.model}
-                  </h2>
-                  <p className="mb-4 text-2xl">
-                    {item.discount > 0 ? (
-                      <>
-                        <span className="line-through l">
-                          €{item.pricePerDay * 7}
-                        </span>{" "}
-                        €
-                        {((item.pricePerDay * (100 - item.discount)) / 100) * 7}
-                      </>
-                    ) : (
-                      <>€{item.pricePerDay * 7}</>
-                    )}
-                    <span className=""> /week</span>
-                  </p>
+                <ImageLoader
+                  className="p-4 h-2/3"
+                  src={item.image}
+                  alt="Camera"
+                />
+                <div className="flex flex-col justify-between items-start pl-4">
+                  <div>
+                    <h2 className="text-md mb-2 text-neutral-800">
+                      {item.brand}
+                    </h2>
+                    <h2 className="font-bold text-xl mb-2">
+                      {item.brand} {item.model}
+                    </h2>
+                    <p className="mb-4 text-2xl">
+                      {item.discount > 0 ? (
+                        <>
+                          <span className="line-through l">
+                            €{item.pricePerDay * 7}
+                          </span>{" "}
+                          €
+                          {((item.pricePerDay * (100 - item.discount)) / 100) *
+                            7}
+                        </>
+                      ) : (
+                        <>€{item.pricePerDay * 7}</>
+                      )}
+                      <span className=""> /week</span>
+                    </p>
+                  </div>
+                  <Link
+                    to={`/equipment/${item.id}`}
+                    className="px-14 py-2.5 rounded-md bg-red-500 text-sm font-semibold text-white shadow-sm hover:bg-red-600"
+                  >
+                    Get it!
+                  </Link>
                 </div>
-                <Link
-                  to={`/equipment/${item.id}`}
-                  className="px-14 py-2.5 rounded-md bg-red-500 text-sm font-semibold text-white shadow-sm hover:bg-red-600"
-                >
-                  Get it!
-                </Link>
-              </div>
-            </div>
+              {/* </div>{" "} */}
+            </Link>
           ))}
         </div>
       </div>
