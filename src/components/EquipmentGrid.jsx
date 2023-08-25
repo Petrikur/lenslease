@@ -88,44 +88,45 @@ export const EquipmentGrid = () => {
     }
   });
 
-  // Display selected filters
+  // Display selected filters// Display selected filters
   const selectedFilters = () => {
     if (hasFilters) {
       return (
-        <>
-          <div className="flex items-center justify-center gap-2 text-center pt-24 lg:mt-0 lg:mx-0 mx-2">
-            {hasFilters && filteredData.length < 1 ? (
-              <p className="text-red-500 text-xl ">No results with filters:</p>
-            ) : (
-              "Filters: "
-            )}
-            {selectedBrand ? (
-              <div className="filterContainer">
-                <IoClose
-                  onClick={() => setSelectedBrand("")}
-                  size={16}
-                  className="filterIcon"
-                />
-
-                {selectedBrand}
+        <div className="flex flex-col items-center justify-center text-center pt-24 lg:mt-0 lg:mx-0 mx-2">
+          {hasFilters && filteredData.length < 1 ? (
+            <p className="text-red-500 text-xl">No results with filters:</p>
+          ) : (
+            <p className="text-lg mb-4">Filters</p>
+          )}
+          <div className="flex flex-col items-start space-y-2">
+            {selectedBrand && (
+              <div className="filterContainer flex items-center">
+                <span className="text-sm text-left text-black font-semibold mr-2 w-20">Brand:</span>
+                <div className="flex items-center justify-center gap-2 ml-2">
+                  <IoClose
+                    onClick={() => setSelectedBrand("")}
+                    size={16}
+                    className="filterIcon"
+                  />
+                  {selectedBrand}
+                </div>
               </div>
-            ) : (
-              ""
             )}
-            /
-            {selectedCategory ? (
-              <div className="filterContainer">
-                <IoClose
-                  onClick={() => setSelectedCategory("")}
-                  className="filterIcon"
-                />{" "}
-                {selectedCategory}
+            {selectedCategory && (
+              <div className="filterContainer flex items-center">
+                <span className="text-sm text-black font-semibold mr-2 w-20 text-left">Category:</span>
+                <div className="flex items-center justify-center gap-2 ml-2">
+                  <IoClose
+                    size={16}
+                    onClick={() => setSelectedCategory("")}
+                    className="filterIcon"
+                  />
+                  {selectedCategory}
+                </div>
               </div>
-            ) : (
-              ""
             )}
           </div>
-        </>
+        </div>
       );
     }
   };
@@ -210,61 +211,64 @@ export const EquipmentGrid = () => {
           );
         })}
       </ul>
-      <div>{selectedFilters()}</div>
-      <div className="mt-20 mx-auto max-w-7xl mb-20 ">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {filteredData.map((item, index) => (
-            <Link
-              key={item.id}
-              className="mx-2 lg:mx-0 flex flex-col py-4 shadow-md hover:shadow-2xl hover:scale-105 hover:border-red-500 hover:border rounded relative"
-              to={`/equipment/${item.id}`}
-            >
-              {/* Discount Badge */}
-              {item.discount > 0 && (
-                <div className="absolute top-0 left-0 w-12 h-12 text-center rounded-tl-md  -rotate-12">
-                  <div className=" w-full h-full bg-gradient-to-tr from-red-500 to-yellow-400  text-md font-semibold px-2 py-2 flex items-center justify-center">
-                    -{item.discount}% off
+      <div className="md:flex">
+        <div className="md:ml-24 font-bold">{selectedFilters()}</div>
+        <div className="mt-20 mx-auto max-w-7xl mb-20 md:ml-24 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {filteredData.map((item, index) => (
+              <Link
+                key={item.id}
+                className="mx-2 lg:mx-0 flex flex-col py-4 shadow-md hover:shadow-2xl hover:scale-105 hover:border-red-500 hover:border rounded relative"
+                to={`/equipment/${item.id}`}
+              >
+                {/* Discount Badge */}
+                {item.discount > 0 && (
+                  <div className="absolute top-0 left-0 w-12 h-12 text-center rounded-tl-md  -rotate-12">
+                    <div className=" w-full h-full bg-gradient-to-tr from-red-500 to-yellow-400  text-md font-semibold px-2 py-2 flex items-center justify-center">
+                      -{item.discount}% off
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              <ImageLoader
-                className="p-4 h-2/3"
-                src={item.image}
-                alt="Camera"
-              />
-              <div className="flex flex-col justify-between items-start pl-4">
-                <div>
-                  <h2 className="text-md mb-2 text-neutral-800">
-                    {item.brand}
-                  </h2>
-                  <h2 className="font-bold text-xl mb-2">
-                    {item.brand} {item.model}
-                  </h2>
-                  <p className="mb-4 text-2xl">
-                    {item.discount > 0 ? (
-                      <>
-                        <span className="line-through l">
-                          €{item.pricePerDay * 7}
-                        </span>{" "}
-                        €
-                        {((item.pricePerDay * (100 - item.discount)) / 100) * 7}
-                      </>
-                    ) : (
-                      <>€{item.pricePerDay * 7}</>
-                    )}
-                    <span className=""> /week</span>
-                  </p>
+                <ImageLoader
+                  className="p-4 h-2/3"
+                  src={item.image}
+                  alt="Camera"
+                />
+                <div className="flex flex-col justify-between items-start pl-4">
+                  <div>
+                    <h2 className="text-md mb-2 text-neutral-800">
+                      {item.brand}
+                    </h2>
+                    <h2 className="font-bold text-xl mb-2">
+                      {item.brand} {item.model}
+                    </h2>
+                    <p className="mb-4 text-2xl">
+                      {item.discount > 0 ? (
+                        <>
+                          <span className="line-through l">
+                            €{item.pricePerDay * 7}
+                          </span>{" "}
+                          €
+                          {((item.pricePerDay * (100 - item.discount)) / 100) *
+                            7}
+                        </>
+                      ) : (
+                        <>€{item.pricePerDay * 7}</>
+                      )}
+                      <span className=""> /week</span>
+                    </p>
+                  </div>
+                  <Link
+                    to={`/equipment/${item.id}`}
+                    className="px-14 py-2.5 rounded-md bg-red-500 text-sm font-semibold text-white shadow-sm hover:bg-red-600"
+                  >
+                    Get it!
+                  </Link>
                 </div>
-                <Link
-                  to={`/equipment/${item.id}`}
-                  className="px-14 py-2.5 rounded-md bg-red-500 text-sm font-semibold text-white shadow-sm hover:bg-red-600"
-                >
-                  Get it!
-                </Link>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </>
