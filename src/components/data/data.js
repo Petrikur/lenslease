@@ -73,7 +73,7 @@ export const cameraData = [
     image: dji400,
     pricePerDay: 20,
     discount: 0,
-    description: "The DJI 400 is a reliable and feature-packed drone that offers impressive aerial capabilities. It is designed for capturing stunning aerial footage and provides intuitive flight controls.",
+    description: "The DJI 500 is a reliable and feature-packed drone that offers impressive aerial capabilities. It is designed for capturing stunning aerial footage and provides intuitive flight controls.",
     technicalAdvantages: [
       "4K UHD video recording",
       "3-axis gimbal stabilization",
@@ -107,7 +107,7 @@ export const cameraData = [
     image: dji3,
     pricePerDay: 20,
     discount: 20,
-    description: "The DJI 400 is a reliable and feature-packed drone that offers impressive aerial capabilities. It is designed for capturing stunning aerial footage and provides intuitive flight controls.",
+    description: "The DJI 300 is a reliable and feature-packed drone that offers impressive aerial capabilities. It is designed for capturing stunning aerial footage and provides intuitive flight controls.",
     technicalAdvantages: [
       "4K UHD video recording",
       "3-axis gimbal stabilization",
@@ -209,7 +209,7 @@ export const cameraData = [
     image: canon2,
     pricePerDay: 40,
     discount: 0,
-    description: "The Canon  500D is a versatile DSLR camera with advanced features. It offers high-resolution images and excellent low-light performance.",
+    description: "The Canon 500D is a versatile DSLR camera with advanced features. It offers high-resolution images and excellent low-light performance.",
     technicalAdvantages: [
       "18-megapixel APS-C CMOS sensor",
       "DIGIC 4 image processor",
@@ -226,7 +226,7 @@ export const cameraData = [
     image: canon3,
     pricePerDay: 15,
     discount: 0,
-    description: "The Canon EOS 550D is a versatile DSLR camera with advanced features. It offers high-resolution images and excellent low-light performance.",
+    description: "The Canon D 700 is a versatile DSLR camera with advanced features. It offers high-resolution images and excellent low-light performance.",
     technicalAdvantages: [
       "18-megapixel APS-C CMOS sensor",
       "DIGIC 4 image processor",

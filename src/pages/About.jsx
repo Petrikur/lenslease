@@ -6,6 +6,7 @@ import { Stats } from "../components/Stats";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { DiscountBanner } from "../components/DiscountBanner";
+import { RentSteps } from "../components/RentSteps";
 
 export const About = () => {
   useEffect(() => {
@@ -57,6 +58,9 @@ export const About = () => {
         </div>
       </section>
       <div className="mt-36 mb-24">
+      <RentSteps />
+      <div className="py-12"></div>
+
         <Stats />
         <div className="pb-10"></div>
         <DiscountBanner />

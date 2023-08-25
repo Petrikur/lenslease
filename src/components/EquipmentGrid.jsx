@@ -98,7 +98,6 @@ export const EquipmentGrid = () => {
 
   return (
     <>
-      <RentSteps />
       <div className=" mx-4 lg:mx-72 text-md pb-8 space-y-4">
         <h1 className="pt-28 pb-4 text-4xl text-center space-y-4">
           Our Equipment
