@@ -3,14 +3,16 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaChevronCircleRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const Step = ({ heading, text, number, delay }) => {
+const Step = ({ heading, text, number, delay,to }) => {
   useEffect(() => {
     AOS.init({ once: true }); 
   }, []);
 
   return (
-    <div
+    <Link
+    to={to}
       data-aos="fade-down"
       data-aos-delay={delay}
       className={`flex flex-col justify-center border p-6 md:w-72 w-80 h-48 step bg-red-500`}
@@ -27,7 +29,7 @@ const Step = ({ heading, text, number, delay }) => {
           <p className="text-md">{text}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -46,6 +48,7 @@ export const RentSteps = () => {
           heading={'Select equipment'}
           text={'Find the right equipment and rent duration'}
           delay={0} 
+          to={"/equipment"}
         />
         <Step
           number={2}
