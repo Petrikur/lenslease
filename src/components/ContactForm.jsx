@@ -14,9 +14,19 @@ export const ContactForm = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [error,setError] = useState("");
+  function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validateEmail(email)) {
+      setError("Email is not valid");
+      return;
+    }
     setFormSubmitted(true)
     setName('');
     setPhoneNumber('');
@@ -73,7 +83,12 @@ export const ContactForm = () => {
               className="formInput"
               required
               value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              onChange={(e) => {
+                  const inputValue = e.target.value;
+                  if (/^\d+$/.test(inputValue)) {
+                    setPhoneNumber(inputValue);
+                  }
+                }}
             />
             <label htmlFor="email" className="block text-md leading-6 text-gray-900">
               Email <span className="text-red-500">*</span>
@@ -86,6 +101,7 @@ export const ContactForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            <p className="text-red-500">{error}</p>
             <label htmlFor="message" className="block text-md leading-6 text-gray-900">
               Message <span className="text-red-500">*</span>
             </label>

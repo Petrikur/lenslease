@@ -1,6 +1,6 @@
 import PageBanner from "../components/PageBanner";
 import Footer from "../components/Footer";
-import React,{ useContext,useState,useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../components/context/CartContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,11 +10,10 @@ import "react-date-range/dist/theme/default.css";
 import { cameraData } from "../components/data/data";
 import CartItem from "../components/cart/CartItem";
 import { CartInput } from "../components/cart/CartInput";
-import { Link,useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CheckoutProvider } from "../components/context/CheckoutContext";
 import { CheckoutContext } from "../components/context/CheckoutContext";
 export const Cart = () => {
-
   const cart = useContext(CartContext);
   const { updateCheckoutData } = useContext(CheckoutContext);
   const navigate = useNavigate();
@@ -27,8 +26,8 @@ export const Cart = () => {
   const [shippingOption, setShippingOption] = useState("pickup");
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [pickupLocation, setPickupLocation] = useState("");
-  const [cartTotalPrice,setCartTotalPrice] = useState(0);
-
+  const [cartTotalPrice, setCartTotalPrice] = useState(0);
+  const [error, setError] = useState("");
   const [selectedDate, setSelectedDate] = useState([
     {
       startDate: new Date(),
@@ -37,19 +36,26 @@ export const Cart = () => {
     },
   ]);
 
-
+  function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  }
 
   useEffect(() => {
-   setCartTotalPrice(calculatePrice(formattedStartDate,formattedEndDate))
-
-  },[cart.cartItems,selectedDate])
-
+    setCartTotalPrice(calculatePrice(formattedStartDate, formattedEndDate));
+  }, [cart.cartItems, selectedDate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validateEmail(email)) {
+      setError("Email is not valid");
+      return;
+    }
+
     updateCheckoutData({
       items: cart.cartItems,
-      totalAmount:cartTotalPrice,
+      totalAmount: cartTotalPrice,
       selectedDate,
       name,
       phoneNumber,
@@ -61,8 +67,7 @@ export const Cart = () => {
       pickupLocation,
     });
 
-   
-    navigate('/checkout');
+    navigate("/checkout");
   };
 
   useEffect(() => {
@@ -129,13 +134,13 @@ export const Cart = () => {
       }
     });
 
-    setCartTotalPrice(totalPrice)
+    setCartTotalPrice(totalPrice);
     return totalPrice;
   };
 
   return (
-      <CheckoutProvider>
-    <>
+    <CheckoutProvider>
+      <>
         <PageBanner name={"Cart"} />
         <div className="flex flex-col md:flex-row justify-center items-start mt-36 mb-20 mx-auto md:px-0 overflow-x-hidden container ">
           <div
@@ -193,7 +198,7 @@ export const Cart = () => {
                 Date <span className="text-red-500 mb-4">*</span>
               </label>
               <button
-              type="button"
+                type="button"
                 onClick={handleShowDatePicker}
                 className="mt-1 bg-gray-100 w-full py-2 text-start pl-1 text-gray-500"
               >
@@ -235,7 +240,12 @@ export const Cart = () => {
                 type="tel"
                 id="phone-number"
                 value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                onChange={(e) => {
+                  const inputValue = e.target.value;
+                  if (/^\d+$/.test(inputValue)) {
+                    setPhoneNumber(inputValue);
+                  }
+                }}
                 required
               />
               <CartInput
@@ -246,6 +256,7 @@ export const Cart = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+              <p className="text-red-500">{error}</p>
 
               <div className="mt-8">
                 <label
@@ -293,7 +304,6 @@ export const Cart = () => {
                     onChange={(e) => setPickupLocation(e.target.value)}
                     defaultValue={"Joensuu"}
                   >
-                  
                     <option value="Joensuu">Joensuu, Finland</option>
                     <option value="Montreal">Montreal, Canada</option>
                     <option value="New York">New York, USA</option>
@@ -340,7 +350,7 @@ export const Cart = () => {
           </div>
         </div>
         <Footer />
-    </>
-      </CheckoutProvider>
+      </>
+    </CheckoutProvider>
   );
 };
