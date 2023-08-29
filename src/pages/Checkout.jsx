@@ -90,7 +90,7 @@ export const Checkout = () => {
               </div>
             </div>
             <div>
-              <PaymentForm onSubmit={handleSubmission} totalAmount={checkoutData.totalAmount} />
+              <PaymentForm shippingOption={checkoutData.shippingOption} onSubmit={handleSubmission} totalAmount={checkoutData.totalAmount} />
             </div>
           </>
         )}

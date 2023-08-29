@@ -5,15 +5,16 @@ import { useContext } from "react";
 import { CartContext } from "./context/CartContext";
 import { useLoading } from "./context/LoadingContext";
 import { Loader } from "./Loader";
+import { useEffect } from "react";
 
-export const PaymentForm = ({ onSubmit,totalAmount }) => {
+export const PaymentForm = ({ onSubmit, totalAmount, shippingOption }) => {
   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("visa");
-
-   const cart = useContext(CartContext);
+  const [cashOptionDisabled, setCashOptionDisabled] = useState(false);
+  const cart = useContext(CartContext);
   const { loading, setLoading } = useLoading();
 
   const handleSubmit = (event) => {
@@ -26,9 +27,17 @@ export const PaymentForm = ({ onSubmit,totalAmount }) => {
       setCvv("");
       onSubmit();
       setLoading(false);
-      cart.clearCart()
+      cart.clearCart();
     }, 2000);
   };
+
+  useEffect(() => {
+    if (shippingOption === "pickup") {
+      setCashOptionDisabled(false);
+    } else {
+      setCashOptionDisabled(true);
+    }
+  }, [shippingOption]);
 
   const handlePaymentMethodChange = (method) => {
     setPaymentMethod(method);
@@ -47,17 +56,21 @@ export const PaymentForm = ({ onSubmit,totalAmount }) => {
         {!loading && (
           <>
             <button
-              className="mr-2 p-2 border rounded hover:bg-gray-100"
+              className="mr-2 p-2 border rounded hover:bg-gray-200"
               onClick={() => handlePaymentMethodChange("visa")}
             >
               <img src={visa} alt="Visa" className="w-12 h-auto" />
             </button>
             <button
-              className="mr-2  p-2 border rounded hover:bg-gray-100"
+              className={`mr-2 p-2 border rounded hover:bg-gray-200 ${
+                paymentMethod === "cash" ? "bg-gray-100" : ""
+              } ${shippingOption !== "pickup" ? "cursor-not-allowed" : ""}`}
               onClick={() => handlePaymentMethodChange("cash")}
+              disabled={cashOptionDisabled}
+              style={{ opacity: cashOptionDisabled ? 0.4 : 1 }}
             >
               <img src={cash} alt="Cash" className="w-12 h-auto" />
-            </button>{" "}
+            </button>
           </>
         )}
       </div>
@@ -156,23 +169,24 @@ export const PaymentForm = ({ onSubmit,totalAmount }) => {
             </p>
           </div>
         )}
-        {!loading &&  <>
-          <div className="text-base mb-8">
-            Amount:{" "}
-            <span className="text-red-500  text-xl">€ {totalAmount}</span>
-          </div>
-          <button
-            type="submit"
-            className="bg-red-500 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-300"
-          >
-            {paymentMethod === "visa" ? (
-              <span>Complete order</span>
-            ) : (
-              <span> Pay at pickup!</span>
-            )}
-          </button>
-        </> }
-       
+        {!loading && (
+          <>
+            <div className="text-base mb-8">
+              Amount:{" "}
+              <span className="text-red-500  text-xl">€ {totalAmount}</span>
+            </div>
+            <button
+              type="submit"
+              className="bg-red-500 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-300"
+            >
+              {paymentMethod === "visa" ? (
+                <span>Complete order</span>
+              ) : (
+                <span> Pay at pickup!</span>
+              )}
+            </button>
+          </>
+        )}
       </form>
     </>
   );
